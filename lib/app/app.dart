@@ -1,4 +1,5 @@
 import 'package:employee_portal/app/router.dart';
+import 'package:employee_portal/app/theme.dart';
 import 'package:flutter/material.dart';
 import 'constants.dart';
 
@@ -11,10 +12,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       title: AppConstants.appName,
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-      ),
+      theme: FilamentTheme.light,
+      darkTheme: FilamentTheme.dark,
       routerConfig: AppRouter.config(),
+      themeMode: ThemeMode.system,
     );
   }
 }
