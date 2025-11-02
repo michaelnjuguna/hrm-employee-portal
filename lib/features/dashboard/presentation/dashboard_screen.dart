@@ -1,3 +1,4 @@
+import 'package:employee_portal/layouts/main_layout.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatelessWidget {
@@ -5,9 +6,11 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: const Text('Portal')),
-      body: const Center(child: Text('Welcome to your dashboard')),
+    return MainLayout(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: const [Text('Welcome to your dashboard')],
+      ),
     );
   }
 }
