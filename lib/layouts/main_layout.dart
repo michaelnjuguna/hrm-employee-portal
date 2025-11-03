@@ -2,6 +2,7 @@ import 'package:employee_portal/app/constants.dart';
 import 'package:employee_portal/core/providers/theme_mode_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:package_info_plus/package_info_plus.dart';
 
 class MainLayout extends ConsumerStatefulWidget {
@@ -32,6 +33,7 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
     final colorScheme = Theme.of(context).colorScheme;
     final themeMode = ref.watch(themeModeProvider);
     final isDark = themeMode == ThemeMode.dark;
+    int currentIndex = 0;
     return Scaffold(
       appBar: AppBar(
         title: const Text(
@@ -151,12 +153,33 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
         child: widget.child,
       ),
       bottomNavigationBar: BottomNavigationBar(
+        currentIndex: currentIndex,
+        onTap: (index) {
+          setState(() {
+            currentIndex = index;
+          });
+          switch (index) {
+            case 0:
+              context.go('/');
+              break;
+            case 1:
+              context.go('/tasks');
+              break;
+            case 2:
+              context.go('/inbox');
+              break;
+          }
+        },
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Settings',
+            icon: Icon(Icons.dashboard),
+            label: 'Dashboard',
           ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.task_alt),
+            label: 'Task board',
+          ),
+          BottomNavigationBarItem(icon: Icon(Icons.inbox), label: 'Inbox'),
         ],
       ),
     );

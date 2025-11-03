@@ -15,11 +15,10 @@ class MyApp extends ConsumerWidget {
     return MaterialApp.router(
       title: 'Portal',
       debugShowCheckedModeBanner: false,
-      theme: FilamentTheme.light,
-      darkTheme: FilamentTheme.dark,
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
       themeMode: themeMode,
       routerConfig: AppRouter.config(),
-      // themeMode: ThemeMode.system,
     );
   }
 }

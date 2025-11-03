@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class FilamentTheme {
+class AppTheme {
   static const lightSeedColor = Color(0xFF38BCFF);
   static const darkSeedColor = Color(0xFF2B84D0);
 
