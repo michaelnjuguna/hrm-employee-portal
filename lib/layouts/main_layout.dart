@@ -2,6 +2,7 @@ import 'package:employee_portal/app/constants.dart';
 import 'package:employee_portal/core/providers/theme_mode_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 class MainLayout extends ConsumerStatefulWidget {
   final Widget child;
@@ -11,7 +12,21 @@ class MainLayout extends ConsumerStatefulWidget {
 }
 
 class _MainLayoutState extends ConsumerState<MainLayout> {
-  // final String title;
+  String _version = '';
+  Future<void> _loadVersion() async {
+    final info = await PackageInfo.fromPlatform();
+
+    setState(() {
+      _version = info.version;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _loadVersion();
+  }
+
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
@@ -19,7 +34,7 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
     final isDark = themeMode == ThemeMode.dark;
     return Scaffold(
       appBar: AppBar(
-        title: Text(
+        title: const Text(
           'Portal',
           style: TextStyle(
             fontWeight: FontWeight.bold,
@@ -34,7 +49,10 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
               backgroundColor: colorScheme.onSurface,
               foregroundColor: colorScheme.surface,
             ),
-            child: Text('LB', style: TextStyle(fontWeight: FontWeight.bold)),
+            child: const Text(
+              'LB',
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
           ),
         ],
       ),
@@ -77,7 +95,7 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
             ),
             ListTile(
               leading: Icon(Icons.account_circle),
-              title: Text(
+              title: const Text(
                 'Profile',
                 style: TextStyle(fontWeight: FontWeight.w600),
               ),
@@ -94,9 +112,37 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
                 ref.read(themeModeProvider.notifier).toggleTheme(value);
               },
             ),
+            Container(
+              margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: colorScheme.primary,
+                  foregroundColor: colorScheme.onPrimary,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4),
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    const Icon(Icons.share),
+                    const SizedBox(width: 8),
+                    const Text('Share'),
+                  ],
+                ),
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text(
+                'Log out',
+                style: TextStyle(fontWeight: FontWeight.w600),
+              ),
+              onTap: () {},
+            ),
             const Spacer(),
-            // TODO:: Add real version
-            ListTile(title: Text('v1.2.9', textAlign: TextAlign.center)),
+
+            ListTile(title: Text('v$_version', textAlign: TextAlign.center)),
           ],
         ),
       ),

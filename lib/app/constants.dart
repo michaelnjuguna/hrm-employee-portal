@@ -6,6 +6,8 @@ class AppConstants {
   // Default padding and spacing
   static const double defaultPadding = 16.0;
   static const double defaultRadius = 12.0;
+
+  // Border radius
 }
 
 class AppFontSizes {
