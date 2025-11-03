@@ -1,17 +1,21 @@
 import 'package:employee_portal/app/constants.dart';
-import 'package:employee_portal/core/providers/theme_provider.dart';
+import 'package:employee_portal/core/providers/theme_mode_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class MainLayout extends ConsumerWidget {
+class MainLayout extends ConsumerStatefulWidget {
   final Widget child;
-
-  // final String title;
   const MainLayout({super.key, required this.child});
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<MainLayout> createState() => _MainLayoutState();
+}
+
+class _MainLayoutState extends ConsumerState<MainLayout> {
+  // final String title;
+  @override
+  Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
-    final themeMode = ref.watch(themeProvider);
+    final themeMode = ref.watch(themeModeProvider);
     final isDark = themeMode == ThemeMode.dark;
     return Scaffold(
       appBar: AppBar(
@@ -87,17 +91,18 @@ class MainLayout extends ConsumerWidget {
               value: isDark,
               secondary: const Icon(Icons.dark_mode),
               onChanged: (value) {
-                ref.read(themeProvider.notifier).toggleTheme(value);
+                ref.read(themeModeProvider.notifier).toggleTheme(value);
               },
             ),
             const Spacer(),
+            // TODO:: Add real version
             ListTile(title: Text('v1.2.9', textAlign: TextAlign.center)),
           ],
         ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(AppFontSizes.lg),
-        child: child,
+        child: widget.child,
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const [

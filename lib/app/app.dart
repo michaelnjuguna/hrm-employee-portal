@@ -1,6 +1,6 @@
 import 'package:employee_portal/app/router.dart';
 import 'package:employee_portal/app/theme.dart';
-import 'package:employee_portal/core/providers/theme_provider.dart';
+import 'package:employee_portal/core/providers/theme_mode_provider.dart';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -11,7 +11,7 @@ class MyApp extends ConsumerWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final themeMode = ref.watch(themeProvider);
+    final themeMode = ref.watch(themeModeProvider);
     return MaterialApp.router(
       title: 'Portal',
       debugShowCheckedModeBanner: false,

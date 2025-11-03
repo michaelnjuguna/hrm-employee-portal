@@ -11,6 +11,6 @@ class ThemeNotifier extends Notifier<ThemeMode> {
 }
 
 // Provider for easy access (now using NotifierProvider)
-final themeProvider = NotifierProvider<ThemeNotifier, ThemeMode>(
+final themeModeProvider = NotifierProvider<ThemeNotifier, ThemeMode>(
   () => ThemeNotifier(),
 );
