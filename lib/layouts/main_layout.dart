@@ -149,7 +149,7 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(AppFontSizes.lg),
+        padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 16),
         child: widget.child,
       ),
       bottomNavigationBar: BottomNavigationBar(
