@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:package_info_plus/package_info_plus.dart';
+import 'package:share_plus/share_plus.dart';
 
 class MainLayout extends ConsumerStatefulWidget {
   final Widget child;
@@ -117,7 +118,14 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               child: ElevatedButton(
-                onPressed: () {},
+                onPressed: () {
+                  SharePlus.instance.share(
+                    ShareParams(
+                      title: 'Check out my app',
+                      text: '// TODO: Add an actual link',
+                    ),
+                  );
+                },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: colorScheme.primary,
                   foregroundColor: colorScheme.onPrimary,
