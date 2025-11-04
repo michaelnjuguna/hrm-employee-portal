@@ -41,6 +41,7 @@ class _CalendarState extends State<Calendar> {
       // height: MediaQuery.of(context).size.height * 50,
       children: [
         TableCalendar(
+          rangeSelectionMode: RangeSelectionMode.enforced,
           focusedDay: _focusedDay,
           firstDay: DateTime(2000),
           lastDay: DateTime(2100),
@@ -51,7 +52,17 @@ class _CalendarState extends State<Calendar> {
           headerStyle: HeaderStyle(
             titleCentered: true,
             leftChevronMargin: EdgeInsets.symmetric(horizontal: 0),
+            leftChevronPadding: EdgeInsets.only(left: 0, right: AppSpacing.p2),
+            rightChevronPadding: EdgeInsets.only(right: 0, left: AppSpacing.p2),
+            leftChevronIcon: Icon(
+              Icons.keyboard_arrow_left,
+              color: colorScheme.primary,
+            ),
             rightChevronMargin: EdgeInsets.symmetric(horizontal: 0),
+            rightChevronIcon: Icon(
+              Icons.keyboard_arrow_right,
+              color: colorScheme.primary,
+            ),
             titleTextStyle: TextStyle(
               fontWeight: FontWeight.bold,
               fontSize: AppFontSizes.lg,
@@ -73,7 +84,7 @@ class _CalendarState extends State<Calendar> {
                     onPressed: _goToToday,
                     style: OutlinedButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(AppRadius.md),
                       ),
                       padding: const EdgeInsets.symmetric(
                         horizontal: 4,
