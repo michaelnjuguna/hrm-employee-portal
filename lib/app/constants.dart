@@ -1,16 +1,3 @@
-class AppFontSizes {
-  static const double xs = 10;
-  static const double sm = 12;
-  static const double base = 14;
-  static const double lg = 16;
-  static const double xl = 18;
-  static const double xxl = 20;
-  static const double displaySm = 24;
-  static const double displayMd = 32;
-  static const double displayLg = 40;
-  static const double displayXl = 48;
-}
-
 class AppRadius {
   static const double none = 0.0;
   static const double sm = 4.0;

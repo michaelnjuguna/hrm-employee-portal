@@ -32,29 +32,26 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final textScheme = Theme.of(context).textTheme;
     final themeMode = ref.watch(themeModeProvider);
     final isDark = themeMode == ThemeMode.dark;
     int currentIndex = 0;
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'Portal',
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: AppFontSizes.xl,
-          ),
-        ),
+        title: Text('Portal', style: textScheme.titleLarge),
         actions: [
           TextButton(
             onPressed: () {},
             style: TextButton.styleFrom(
               shape: const CircleBorder(),
-              backgroundColor: colorScheme.onSurface,
               foregroundColor: colorScheme.surface,
+              backgroundColor: colorScheme.onSurface,
             ),
-            child: const Text(
+            child: Text(
               'LB',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              style: textScheme.titleMedium!.copyWith(
+                color: colorScheme.surface,
+              ),
             ),
           ),
         ],
@@ -77,14 +74,7 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Text(
-                        'Portal',
-                        style: TextStyle(
-                          color: colorScheme.onSurface,
-                          fontWeight: FontWeight.bold,
-                          fontSize: AppFontSizes.xl,
-                        ),
-                      ),
+                      Text('Portal', style: textScheme.titleLarge),
                       IconButton(
                         onPressed: () {
                           Navigator.pop(context);
@@ -98,17 +88,11 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
             ),
             ListTile(
               leading: Icon(Icons.account_circle),
-              title: const Text(
-                'Profile',
-                style: TextStyle(fontWeight: FontWeight.w600),
-              ),
+              title: Text('Profile', style: textScheme.bodyLarge),
               onTap: () {},
             ),
             SwitchListTile(
-              title: const Text(
-                'Dark theme',
-                style: TextStyle(fontWeight: FontWeight.w600),
-              ),
+              title: Text('Dark theme', style: textScheme.bodyLarge),
               value: isDark,
               secondary: const Icon(Icons.dark_mode),
               onChanged: (value) {
@@ -135,24 +119,32 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
                 ),
                 child: Row(
                   children: [
-                    const Icon(Icons.share),
+                    Icon(Icons.share, color: colorScheme.surface),
                     const SizedBox(width: 8),
-                    const Text('Share'),
+                    Text(
+                      'Share',
+                      style: textScheme.labelLarge!.copyWith(
+                        color: colorScheme.surface,
+                      ),
+                    ),
                   ],
                 ),
               ),
             ),
             ListTile(
               leading: const Icon(Icons.logout),
-              title: const Text(
-                'Log out',
-                style: TextStyle(fontWeight: FontWeight.w600),
-              ),
+              title: Text('Log out', style: textScheme.bodyLarge),
               onTap: () {},
             ),
             const Spacer(),
 
-            ListTile(title: Text('v$_version', textAlign: TextAlign.center)),
+            ListTile(
+              title: Text(
+                'v$_version',
+                textAlign: TextAlign.center,
+                style: textScheme.bodySmall,
+              ),
+            ),
           ],
         ),
       ),

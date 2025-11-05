@@ -37,6 +37,7 @@ class _CalendarState extends State<Calendar> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final textScheme = Theme.of(context).textTheme;
     return Column(
       // height: MediaQuery.of(context).size.height * 50,
       children: [
@@ -64,8 +65,8 @@ class _CalendarState extends State<Calendar> {
               color: colorScheme.primary,
             ),
             titleTextStyle: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: AppFontSizes.lg,
+              fontWeight: textScheme.titleMedium?.fontWeight,
+              fontSize: textScheme.titleMedium?.fontSize,
             ),
           ),
           calendarBuilders: CalendarBuilders(
@@ -75,10 +76,7 @@ class _CalendarState extends State<Calendar> {
                 children: [
                   Text(
                     '${Jiffy.parse((date.toString())).format(pattern: 'MMMM')} ${date.year}',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: AppFontSizes.lg,
-                    ),
+                    style: textScheme.titleMedium,
                   ),
                   OutlinedButton(
                     onPressed: _goToToday,
@@ -92,10 +90,7 @@ class _CalendarState extends State<Calendar> {
                       ),
                       minimumSize: Size(0, 30),
                     ),
-                    child: Text(
-                      'Today',
-                      style: TextStyle(color: colorScheme.onSurface),
-                    ),
+                    child: Text('Today', style: textScheme.labelSmall),
                   ),
                 ],
               );
