@@ -1,11 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:employee_portal/features/dashboard/models/event.dart';
-// class Event {
-//   final String title;
-//   final String? description;
-//   Event({required this.title, this.description});
-// }
 
 class EventCard extends StatefulWidget {
   final List<Event> events;
@@ -26,6 +21,7 @@ class _EventCardState extends State<EventCard> {
         final event = widget.events[index];
         return ListTile(
           isThreeLine: true,
+          contentPadding: EdgeInsets.zero,
           title: Text(event.title, style: textScheme.titleMedium),
           subtitle: Text(
             event.description ?? '',

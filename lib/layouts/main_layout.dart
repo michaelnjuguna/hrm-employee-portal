@@ -1,4 +1,3 @@
-import 'package:employee_portal/app/constants.dart';
 import 'package:employee_portal/core/providers/theme_mode_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,7 +7,8 @@ import 'package:share_plus/share_plus.dart';
 
 class MainLayout extends ConsumerStatefulWidget {
   final Widget child;
-  const MainLayout({super.key, required this.child});
+  final Widget? floatingActionButton;
+  const MainLayout({super.key, required this.child, this.floatingActionButton});
   @override
   ConsumerState<MainLayout> createState() => _MainLayoutState();
 }
@@ -156,6 +156,7 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
           ),
         ),
       ),
+      floatingActionButton: widget.floatingActionButton,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
         onTap: (index) {
