@@ -20,39 +20,39 @@ class _EventCardState extends State<EventCard> {
       itemCount: widget.events.length,
       itemBuilder: (context, index) {
         final event = widget.events[index];
-        return ListTile(
-          isThreeLine: true,
-          contentPadding: EdgeInsets.zero,
-          title: Text(event.title, style: textScheme.titleMedium),
-          subtitle: Text(
-            event.description ?? '',
-            style: textScheme.bodyMedium,
-            maxLines: 1,
-            overflow: TextOverflow.ellipsis,
-          ),
-          leading: Container(
-            decoration: BoxDecoration(
-              color: Colors.green,
-              borderRadius: BorderRadius.circular(12),
+        return Card(
+          child: ListTile(
+            title: Text(event.title, style: textScheme.titleMedium),
+            subtitle: Text(
+              event.description ?? '',
+              style: textScheme.bodyMedium,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
             ),
-            padding: EdgeInsets.symmetric(vertical: 2),
-            width: 4,
-            height: double.infinity,
-          ),
+            leading: Container(
+              decoration: BoxDecoration(
+                color: Colors.green,
+                borderRadius: BorderRadius.circular(12),
+              ),
+              padding: EdgeInsets.symmetric(vertical: 2),
+              width: 4,
+              height: 40,
+            ),
 
-          trailing: IconButton(
-            onPressed: () {
-              showModalBottomSheet(
-                context: context,
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.vertical(
-                    top: Radius.circular(AppSpacing.p4),
+            trailing: IconButton(
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  shape: const RoundedRectangleBorder(
+                    borderRadius: BorderRadius.vertical(
+                      top: Radius.circular(AppSpacing.p4),
+                    ),
                   ),
-                ),
-                builder: (context) => const MoreBottomSheet(),
-              );
-            },
-            icon: Icon(Icons.more_vert),
+                  builder: (context) => const MoreBottomSheet(),
+                );
+              },
+              icon: Icon(Icons.more_vert),
+            ),
           ),
         );
       },
