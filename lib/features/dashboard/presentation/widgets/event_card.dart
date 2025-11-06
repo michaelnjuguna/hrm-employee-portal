@@ -1,5 +1,6 @@
+import 'package:employee_portal/features/dashboard/presentation/widgets/more_widget.dart';
 import 'package:flutter/material.dart';
-
+import 'package:employee_portal/app/constants.dart';
 import 'package:employee_portal/features/dashboard/models/event.dart';
 
 class EventCard extends StatefulWidget {
@@ -39,7 +40,20 @@ class _EventCardState extends State<EventCard> {
             height: double.infinity,
           ),
 
-          trailing: IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
+          trailing: IconButton(
+            onPressed: () {
+              showModalBottomSheet(
+                context: context,
+                shape: const RoundedRectangleBorder(
+                  borderRadius: BorderRadius.vertical(
+                    top: Radius.circular(AppSpacing.p4),
+                  ),
+                ),
+                builder: (context) => const MoreBottomSheet(),
+              );
+            },
+            icon: Icon(Icons.more_vert),
+          ),
         );
       },
     );

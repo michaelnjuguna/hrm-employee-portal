@@ -154,7 +154,7 @@ class _CalendarState extends State<Calendar> {
           eventLoader: _getEventsForDay,
           calendarStyle: CalendarStyle(
             todayDecoration: BoxDecoration(
-              color: colorScheme.primary,
+              color: colorScheme.secondary,
               shape: BoxShape.circle,
             ),
             selectedDecoration: BoxDecoration(
