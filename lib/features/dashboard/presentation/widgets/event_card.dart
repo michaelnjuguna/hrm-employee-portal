@@ -13,7 +13,7 @@ class EventCard extends StatefulWidget {
 class _EventCardState extends State<EventCard> {
   @override
   Widget build(BuildContext context) {
-    final textScheme = Theme.of(context).textTheme;
+    final textTheme = Theme.of(context).textTheme;
     return ListView.builder(
       shrinkWrap: true,
       physics: const NeverScrollableScrollPhysics(),
@@ -22,21 +22,25 @@ class _EventCardState extends State<EventCard> {
         final event = widget.events[index];
         return Card(
           child: ListTile(
-            title: Text(event.title, style: textScheme.titleMedium),
+            title: Text(event.title, style: textTheme.titleMedium),
             subtitle: Text(
               event.description ?? '',
-              style: textScheme.bodyMedium,
+              style: textTheme.bodyMedium,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
             ),
-            leading: Container(
-              decoration: BoxDecoration(
-                color: Colors.green,
-                borderRadius: BorderRadius.circular(12),
-              ),
-              padding: EdgeInsets.symmetric(vertical: 2),
-              width: 4,
-              height: 40,
+            leading: LayoutBuilder(
+              builder: (context, constraints) {
+                return Container(
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                  padding: EdgeInsets.symmetric(vertical: 6),
+                  width: 4,
+                  height: constraints.maxHeight * 0.6,
+                );
+              },
             ),
 
             trailing: IconButton(

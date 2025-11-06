@@ -1,4 +1,5 @@
 import 'package:employee_portal/features/dashboard/presentation/widgets/calendar_widget.dart';
+import 'package:employee_portal/features/dashboard/presentation/widgets/create_event_widget.dart';
 import 'package:employee_portal/layouts/main_layout.dart';
 import 'package:flutter/material.dart';
 
@@ -15,7 +16,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
     final colorScheme = Theme.of(context).colorScheme;
     return MainLayout(
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          showModalBottomSheet(
+            context: context,
+            isScrollControlled: true,
+            builder: (context) => const CreateEventWidget(),
+          );
+        },
         shape: const CircleBorder(),
         backgroundColor: colorScheme.primary,
         child: Icon(Icons.add, color: colorScheme.onPrimary),
