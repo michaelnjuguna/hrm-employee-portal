@@ -4,6 +4,7 @@ import 'package:employee_portal/features/dashboard/presentation/dashboard_screen
 
 class AppRouter {
   AppRouter._();
+
   static final GoRouter _router = GoRouter(
     initialLocation: '/',
     routes: [

@@ -1,5 +1,5 @@
-import 'package:employee_portal/app/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:employee_portal/app/constants.dart';
 
 class CreateEventWidget extends StatefulWidget {
   const CreateEventWidget({super.key});
@@ -12,15 +12,11 @@ class _CreateEventState extends State<CreateEventWidget> {
   final _formKey = GlobalKey<FormState>();
   final _titleController = TextEditingController();
   final _descController = TextEditingController();
-  String? _type;
-  bool? _allDay;
-  DateTime? _startTime;
-  DateTime? _endTime;
+
   @override
   void dispose() {
     _titleController.dispose();
     _descController.dispose();
-
     super.dispose();
   }
 
@@ -34,58 +30,132 @@ class _CreateEventState extends State<CreateEventWidget> {
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
     final textTheme = Theme.of(context).textTheme;
-    return BottomSheet(
-      onClosing: () {},
-      builder: (context) {
-        return Container(
-          padding: const EdgeInsets.all(AppSpacing.p4),
-          decoration: BoxDecoration(
-            color: colorScheme.surface,
-            borderRadius: BorderRadius.vertical(
-              top: Radius.circular(AppRadius.xl),
+
+    return SingleChildScrollView(
+      padding: EdgeInsets.only(
+        top: 16,
+        left: 16,
+        right: 16,
+        bottom: MediaQuery.of(context).viewInsets.bottom + 16,
+      ),
+      child: Container(
+        decoration: BoxDecoration(
+          // color: colorScheme.surface,
+          borderRadius: BorderRadius.vertical(
+            top: Radius.circular(AppRadius.xl),
+          ),
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            IconButton(
+              iconSize: 40,
+              padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              icon: Icon(Icons.keyboard_arrow_down),
             ),
-          ),
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            children: [
-              Container(
-                width: double.infinity,
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(
-                  border: Border(
-                    bottom: BorderSide(color: Colors.grey, width: 1),
-                  ),
-                ),
-                child: Padding(
-                  padding: const EdgeInsets.all(AppSpacing.p4),
-                  child: Text('Create Event', style: textTheme.titleMedium),
+            Container(
+              width: double.infinity,
+              alignment: Alignment.center,
+              decoration: const BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(color: Colors.grey, width: 1),
                 ),
               ),
-              const SizedBox(height: 16),
-              Form(
-                key: _formKey,
-                child: Column(
-                  children: [
-                    TextFormField(
-                      controller: _titleController,
-                      decoration: const InputDecoration(
-                        labelText: 'Title',
-                        border: OutlineInputBorder(),
+              padding: const EdgeInsets.only(bottom: AppSpacing.p4, top: 0),
+              child: Text('Create Event', style: textTheme.titleMedium),
+            ),
+            const SizedBox(height: 16),
+            Form(
+              key: _formKey,
+              child: Column(
+                children: [
+                  TextFormField(
+                    controller: _titleController,
+                    decoration: const InputDecoration(
+                      labelText: 'Title',
+                      border: OutlineInputBorder(),
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: AppSpacing.p1,
+                        vertical: AppSpacing.p0,
                       ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter event title';
-                        }
-                        return null;
-                      },
                     ),
-                  ],
-                ),
+                    validator: (value) => value == null || value.isEmpty
+                        ? 'Please enter event title'
+                        : null,
+                  ),
+                  const SizedBox(height: 16),
+                  TextFormField(
+                    controller: _descController,
+                    keyboardType: TextInputType.multiline,
+                    minLines: 5,
+                    maxLines: null,
+                    decoration: const InputDecoration(
+                      labelText: 'Description',
+                      border: OutlineInputBorder(),
+                      contentPadding: EdgeInsets.symmetric(
+                        horizontal: AppSpacing.p1,
+                        vertical: AppSpacing.p0,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  Column(
+                    children: [
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: colorScheme.primary,
+                            foregroundColor: colorScheme.onPrimary,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(AppRadius.md),
+                            ),
+                          ),
+                          onPressed: _submit,
+                          child: const Text('Create'),
+                        ),
+                      ),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: colorScheme.secondary,
+                            foregroundColor: colorScheme.onSecondary,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(AppRadius.md),
+                            ),
+                          ),
+                          onPressed: _submit,
+                          child: const Text('Create & Create another'),
+                        ),
+                      ),
+                      SizedBox(
+                        width: double.infinity,
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: colorScheme.surface,
+                            foregroundColor: colorScheme.onSurface,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(AppRadius.md),
+                            ),
+                          ),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: const Text('Cancel'),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-            ],
-          ),
-        );
-      },
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
