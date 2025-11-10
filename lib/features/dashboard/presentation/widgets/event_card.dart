@@ -49,7 +49,7 @@ class _EventCardState extends State<EventCard> {
                   context: context,
                   shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.vertical(
-                      top: Radius.circular(AppSpacing.p4),
+                      top: Radius.circular(16),
                     ),
                   ),
                   builder: (context) => const MoreBottomSheet(),

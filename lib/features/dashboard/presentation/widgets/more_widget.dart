@@ -16,7 +16,7 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
       onClosing: () {},
       builder: (context) {
         return Container(
-          padding: const EdgeInsets.all(AppSpacing.p4),
+          padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: colorScheme.surface,
             borderRadius: BorderRadius.vertical(top: Radius.circular(16)),

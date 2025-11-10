@@ -41,9 +41,7 @@ class _CreateEventState extends State<CreateEventWidget> {
       child: Container(
         decoration: BoxDecoration(
           // color: colorScheme.surface,
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(AppRadius.xl),
-          ),
+          borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
@@ -64,7 +62,7 @@ class _CreateEventState extends State<CreateEventWidget> {
                   bottom: BorderSide(color: Colors.grey, width: 1),
                 ),
               ),
-              padding: const EdgeInsets.only(bottom: AppSpacing.p4, top: 0),
+              padding: const EdgeInsets.only(bottom: 16, top: 0),
               child: Text('Create Event', style: textTheme.titleMedium),
             ),
             const SizedBox(height: 16),
@@ -78,8 +76,8 @@ class _CreateEventState extends State<CreateEventWidget> {
                       labelText: 'Title',
                       border: OutlineInputBorder(),
                       contentPadding: EdgeInsets.symmetric(
-                        horizontal: AppSpacing.p1,
-                        vertical: AppSpacing.p0,
+                        horizontal: 4,
+                        vertical: 0,
                       ),
                     ),
                     validator: (value) => value == null || value.isEmpty
@@ -96,8 +94,8 @@ class _CreateEventState extends State<CreateEventWidget> {
                       labelText: 'Description',
                       border: OutlineInputBorder(),
                       contentPadding: EdgeInsets.symmetric(
-                        horizontal: AppSpacing.p1,
-                        vertical: AppSpacing.p0,
+                        horizontal: 4,
+                        vertical: 0,
                       ),
                     ),
                   ),
@@ -111,7 +109,7 @@ class _CreateEventState extends State<CreateEventWidget> {
                             backgroundColor: colorScheme.primary,
                             foregroundColor: colorScheme.onPrimary,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(AppRadius.md),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                           onPressed: _submit,
@@ -125,7 +123,7 @@ class _CreateEventState extends State<CreateEventWidget> {
                             backgroundColor: colorScheme.secondary,
                             foregroundColor: colorScheme.onSecondary,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(AppRadius.md),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                           onPressed: _submit,
@@ -139,7 +137,7 @@ class _CreateEventState extends State<CreateEventWidget> {
                             backgroundColor: colorScheme.surface,
                             foregroundColor: colorScheme.onSurface,
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(AppRadius.md),
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
                           onPressed: () {

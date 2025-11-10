@@ -74,8 +74,8 @@ class _CalendarState extends State<Calendar> {
           headerStyle: HeaderStyle(
             titleCentered: true,
             leftChevronMargin: EdgeInsets.symmetric(horizontal: 0),
-            leftChevronPadding: EdgeInsets.only(left: 0, right: AppSpacing.p2),
-            rightChevronPadding: EdgeInsets.only(right: 0, left: AppSpacing.p2),
+            leftChevronPadding: EdgeInsets.only(left: 0, right: 4),
+            rightChevronPadding: EdgeInsets.only(right: 0, left: 4),
             leftChevronIcon: Icon(
               Icons.keyboard_arrow_left,
               color: colorScheme.primary,
@@ -97,9 +97,7 @@ class _CalendarState extends State<Calendar> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: events.take(3).map((e) {
                     return Container(
-                      margin: const EdgeInsets.symmetric(
-                        horizontal: AppSpacing.p1,
-                      ),
+                      margin: const EdgeInsets.symmetric(horizontal: 4),
                       width: 5,
                       height: 5,
                       decoration: BoxDecoration(
@@ -124,7 +122,7 @@ class _CalendarState extends State<Calendar> {
                     onPressed: _goToToday,
                     style: OutlinedButton.styleFrom(
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(AppRadius.md),
+                        borderRadius: BorderRadius.circular(8),
                       ),
                       padding: const EdgeInsets.symmetric(
                         horizontal: 4,
@@ -165,7 +163,7 @@ class _CalendarState extends State<Calendar> {
         ),
 
         Padding(
-          padding: EdgeInsets.only(top: AppSpacing.p4),
+          padding: EdgeInsets.only(top: 16),
           child: Container(
             alignment: Alignment.centerLeft,
             child: Text(
