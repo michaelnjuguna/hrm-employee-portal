@@ -113,9 +113,6 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
                 style: ElevatedButton.styleFrom(
                   backgroundColor: colorScheme.primary,
                   foregroundColor: colorScheme.onPrimary,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4),
-                  ),
                 ),
                 child: Row(
                   children: [
