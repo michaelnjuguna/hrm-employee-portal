@@ -24,7 +24,7 @@ class AppTheme {
       seedColor: lightSeedColor,
       brightness: Brightness.light,
     ),
-    textTheme: GoogleFonts.interTextTheme(),
+    textTheme: GoogleFonts.lexendTextTheme(),
     elevatedButtonTheme: _elevatedButtonTheme,
     inputDecorationTheme: _inputDecorationTheme,
   );
@@ -35,7 +35,7 @@ class AppTheme {
       seedColor: darkSeedColor,
       brightness: Brightness.dark,
     ),
-    textTheme: GoogleFonts.interTextTheme(ThemeData.dark().textTheme),
+    textTheme: GoogleFonts.lexendTextTheme(ThemeData.dark().textTheme),
     elevatedButtonTheme: _elevatedButtonTheme,
     inputDecorationTheme: _inputDecorationTheme,
   );

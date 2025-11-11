@@ -20,6 +20,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           showModalBottomSheet(
             context: context,
             isScrollControlled: true,
+            // useRootNavigator: true,
             builder: (context) => const CreateEventWidget(),
           );
         },
