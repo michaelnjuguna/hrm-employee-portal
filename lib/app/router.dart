@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
 // Screens
-import 'package:employee_portal/features/dashboard/presentation/dashboard_screen.dart';
+import 'package:employee_portal/presentation/dashboard/dashboard_screen.dart';
 
 class AppRouter {
   AppRouter._();

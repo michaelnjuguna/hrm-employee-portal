@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:employee_portal/app/constants.dart';
 
 class CreateEventWidget extends StatefulWidget {
   const CreateEventWidget({super.key});
@@ -59,7 +58,7 @@ class _CreateEventState extends State<CreateEventWidget> {
                 onPressed: () {
                   Navigator.pop(context);
                 },
-                icon: Icon(Icons.keyboard_arrow_down),
+                icon: Icon(Icons.keyboard_arrow_down_rounded),
               ),
               Container(
                 width: double.infinity,

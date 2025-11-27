@@ -1,7 +1,7 @@
-import 'package:employee_portal/features/dashboard/presentation/widgets/more_widget.dart';
+import 'package:employee_portal/presentation/dashboard/widgets/more_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:employee_portal/app/constants.dart';
-import 'package:employee_portal/features/dashboard/models/event.dart';
+
+import 'package:employee_portal/presentation/dashboard/models/event.dart';
 
 class EventCard extends StatefulWidget {
   final List<Event> events;

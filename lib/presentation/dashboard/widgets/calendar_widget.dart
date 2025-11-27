@@ -1,9 +1,8 @@
-import 'package:employee_portal/app/constants.dart';
-import 'package:employee_portal/features/dashboard/presentation/widgets/event_card.dart';
+import 'package:employee_portal/presentation/dashboard/widgets/event_card.dart';
 import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:table_calendar/table_calendar.dart';
-import 'package:employee_portal/features/dashboard/models/event.dart';
+import 'package:employee_portal/presentation/dashboard/models/event.dart';
 
 class Calendar extends StatefulWidget {
   const Calendar({super.key});

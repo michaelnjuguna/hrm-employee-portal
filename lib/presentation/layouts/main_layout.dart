@@ -39,25 +39,28 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Portal', style: textScheme.titleLarge),
+
+        iconTheme: IconThemeData(color: colorScheme.onSurface),
         actions: [
-          TextButton(
+          IconButton(
+            icon: Icon(Icons.notifications),
             onPressed: () {},
-            style: TextButton.styleFrom(
-              shape: const CircleBorder(),
-              foregroundColor: colorScheme.surface,
-              backgroundColor: colorScheme.onSurface,
-            ),
-            child: Text(
-              'LB',
-              style: textScheme.titleMedium!.copyWith(
-                color: colorScheme.surface,
-              ),
-            ),
+
+            // style: TextButton.styleFrom(
+            //   shape: const CircleBorder(),
+            //   foregroundColor: colorScheme.surface,
+            //   backgroundColor: colorScheme.onSurface,
+            // ),
           ),
         ],
       ),
       drawer: Drawer(
-        shape: const RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            topRight: Radius.circular(8),
+            bottomRight: Radius.circular(8),
+          ),
+        ),
 
         child: Column(
           children: [
@@ -79,7 +82,10 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        icon: Icon(Icons.close, color: colorScheme.onSurface),
+                        icon: Icon(
+                          Icons.close_rounded,
+                          color: colorScheme.onSurface,
+                        ),
                       ),
                     ],
                   ),
@@ -170,6 +176,9 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
             case 2:
               context.go('/inbox');
               break;
+            case 3:
+              context.go('/profile');
+              break;
           }
         },
         items: const [
@@ -182,6 +191,10 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
             label: 'Task board',
           ),
           BottomNavigationBarItem(icon: Icon(Icons.inbox), label: 'Inbox'),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle_rounded),
+            label: 'Account',
+          ),
         ],
       ),
     );
