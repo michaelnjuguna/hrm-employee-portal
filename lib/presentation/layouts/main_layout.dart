@@ -15,6 +15,7 @@ class MainLayout extends ConsumerStatefulWidget {
 
 class _MainLayoutState extends ConsumerState<MainLayout> {
   String _version = '';
+  int currentIndex = 0;
   Future<void> _loadVersion() async {
     final info = await PackageInfo.fromPlatform();
 
@@ -35,7 +36,6 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
     final textScheme = Theme.of(context).textTheme;
     final themeMode = ref.watch(themeModeProvider);
     final isDark = themeMode == ThemeMode.dark;
-    int currentIndex = 0;
     return Scaffold(
       appBar: AppBar(
         title: Text('Portal', style: textScheme.titleLarge),
@@ -43,7 +43,8 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
         iconTheme: IconThemeData(color: colorScheme.onSurface),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications),
+            icon: Icon(Icons.notifications_outlined),
+
             onPressed: () {},
 
             // style: TextButton.styleFrom(
@@ -162,6 +163,8 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
       floatingActionButton: widget.floatingActionButton,
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: currentIndex,
+        selectedItemColor: colorScheme.primary,
+        unselectedItemColor: colorScheme.onSurface,
         onTap: (index) {
           setState(() {
             currentIndex = index;
@@ -183,16 +186,23 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
         },
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.dashboard),
+            icon: Icon(Icons.dashboard_outlined),
+            activeIcon: Icon(Icons.dashboard),
             label: 'Dashboard',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.task_alt),
+            icon: Icon(Icons.task_alt_outlined),
+            activeIcon: Icon(Icons.task_alt),
             label: 'Task board',
           ),
-          BottomNavigationBarItem(icon: Icon(Icons.inbox), label: 'Inbox'),
           BottomNavigationBarItem(
-            icon: Icon(Icons.account_circle_rounded),
+            icon: Icon(Icons.inbox_outlined),
+            activeIcon: Icon(Icons.inbox),
+            label: 'Inbox',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.account_circle_outlined),
+            activeIcon: Icon(Icons.account_circle),
             label: 'Account',
           ),
         ],
