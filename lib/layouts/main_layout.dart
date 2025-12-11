@@ -8,7 +8,13 @@ import 'package:share_plus/share_plus.dart';
 class MainLayout extends ConsumerStatefulWidget {
   final Widget child;
   final Widget? floatingActionButton;
-  const MainLayout({super.key, required this.child, this.floatingActionButton});
+  final String? appBarTitle;
+  const MainLayout({
+    super.key,
+    required this.child,
+    this.appBarTitle,
+    this.floatingActionButton,
+  });
   @override
   ConsumerState<MainLayout> createState() => _MainLayoutState();
 }
@@ -36,9 +42,25 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
     final textScheme = Theme.of(context).textTheme;
     final themeMode = ref.watch(themeModeProvider);
     final isDark = themeMode == ThemeMode.dark;
+
+    final currentLocation = GoRouterState.of(context).uri.path;
+    int currentIndex = 0;
+    if (currentLocation == '/') {
+      currentIndex = 0;
+    } else if (currentLocation.startsWith('/taskboard')) {
+      currentIndex = 1;
+    } else if (currentLocation.startsWith('/inbox')) {
+      currentIndex = 2;
+    } else if (currentLocation.startsWith('/profile')) {
+      currentIndex = 3;
+    }
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Portal', style: textScheme.titleLarge),
+        title: Text(
+          widget.appBarTitle ?? 'Portal',
+          style: textScheme.titleLarge,
+        ),
 
         iconTheme: IconThemeData(color: colorScheme.onSurface),
         actions: [
