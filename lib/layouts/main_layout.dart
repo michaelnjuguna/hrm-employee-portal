@@ -174,7 +174,7 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
               context.go('/');
               break;
             case 1:
-              context.go('/tasks');
+              context.go('/taskboard');
               break;
             case 2:
               context.go('/inbox');

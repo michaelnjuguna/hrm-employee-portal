@@ -46,20 +46,16 @@ class _CreateEventState extends State<CreateEventWidget> {
       child: SingleChildScrollView(
         child: Container(
           decoration: BoxDecoration(
-            // color: colorScheme.surface,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+            // TODO: Reduce border radius
+            borderRadius: BorderRadius.only(
+              topRight: Radius.circular(8),
+              bottomRight: Radius.circular(8),
+            ),
           ),
+
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              IconButton(
-                iconSize: 40,
-                padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: Icon(Icons.keyboard_arrow_down_rounded),
-              ),
               Container(
                 width: double.infinity,
                 alignment: Alignment.center,
@@ -69,9 +65,23 @@ class _CreateEventState extends State<CreateEventWidget> {
                   ),
                 ),
                 padding: const EdgeInsets.only(bottom: 16, top: 0),
-                child: Text('Create Event', style: textTheme.titleMedium),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Create Event', style: textTheme.titleMedium),
+                    IconButton(
+                      iconSize: 25,
+                      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      icon: Icon(Icons.close_rounded),
+                    ),
+                  ],
+                ),
               ),
               const SizedBox(height: 16),
+              // TODO:Make this it's own widget
               Form(
                 key: _formKey,
                 child: Column(
@@ -120,6 +130,7 @@ class _CreateEventState extends State<CreateEventWidget> {
                         ),
                         Expanded(
                           flex: 2,
+                          // TODO: When all day is clicked start and end time are filled and disabled
                           child: FormField<bool>(
                             initialValue: _allDay ?? false,
                             builder: (field) {
