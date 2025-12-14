@@ -1,4 +1,4 @@
-import 'package:employee_portal/presentation/dashboard/widgets/more_widget.dart';
+import 'package:employee_portal/presentation/dashboard/widgets/more_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 import 'package:employee_portal/presentation/dashboard/models/event.dart';

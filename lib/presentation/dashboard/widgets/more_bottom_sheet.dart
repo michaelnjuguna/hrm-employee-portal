@@ -1,3 +1,4 @@
+import 'package:employee_portal/presentation/dashboard/widgets/view_event_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 class MoreBottomSheet extends StatefulWidget {
@@ -23,7 +24,21 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: [
-              ListTile(leading: Icon(Icons.visibility), title: Text('View')),
+              ListTile(
+                onTap: () {
+                  showModalBottomSheet(
+                    context: context,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(8),
+                      ),
+                    ),
+                    builder: (context) => const ViewEventBottomSheet(),
+                  );
+                },
+                leading: Icon(Icons.visibility),
+                title: Text('View'),
+              ),
               ListTile(leading: Icon(Icons.edit), title: Text('Edit')),
               ListTile(
                 leading: Icon(Icons.delete, color: colorScheme.error),
