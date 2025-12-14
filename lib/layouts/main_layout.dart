@@ -228,7 +228,7 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
           BottomNavigationBarItem(
             icon: Icon(Icons.account_circle_outlined),
             activeIcon: Icon(Icons.account_circle),
-            label: 'Account',
+            label: 'Profile',
           ),
         ],
       ),

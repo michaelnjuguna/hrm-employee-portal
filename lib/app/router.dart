@@ -1,7 +1,9 @@
+import 'package:employee_portal/presentation/account/profile_screen.dart';
+import 'package:employee_portal/presentation/inbox/inbox_screen.dart';
+import 'package:employee_portal/presentation/notifications/notifications_screen.dart';
 import 'package:employee_portal/presentation/splash_screen.dart';
 import 'package:employee_portal/presentation/taskboard/taskboard_screen.dart';
 import 'package:go_router/go_router.dart';
-// Screens
 import 'package:employee_portal/presentation/dashboard/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -24,6 +26,21 @@ class AppRouter {
         path: '/taskboard',
         name: 'taskboard',
         pageBuilder: (context, state) => _fadePage(const TaskboardScreen()),
+      ),
+      GoRoute(
+        path: '/inbox',
+        name: 'inbox',
+        pageBuilder: (context, state) => _fadePage(const InboxScreen()),
+      ),
+      GoRoute(
+        path: '/profile',
+        name: 'profile',
+        pageBuilder: (context, state) => _fadePage(const ProfileScreen()),
+      ),
+      GoRoute(
+        path: '/notifications',
+        name: 'notifications',
+        pageBuilder: (context, state) => _fadePage(const NotificationsScreen()),
       ),
     ],
   );
