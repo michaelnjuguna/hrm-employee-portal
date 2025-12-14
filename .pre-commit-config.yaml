@@ -10,3 +10,4 @@ repos:
         name: Flutter Test
         entry: flutter test
         language: system
+        pass_filenames: false
