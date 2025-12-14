@@ -153,21 +153,22 @@ class _CreateEventFormState extends State<CreateEventForm> {
     BuildContext context,
     TextEditingController controller,
   ) async {
+    final localContext = context;
     final date = await showDatePicker(
-      context: context,
+      context: localContext,
       initialDate: DateTime.now(),
       firstDate: DateTime(2000),
       lastDate: DateTime(2100),
     );
 
-    if (date == null) return;
+    if (date == null || !mounted) return;
 
     final time = await showTimePicker(
-      context: context,
+      context: localContext,
       initialTime: TimeOfDay.now(),
     );
 
-    if (time == null) return;
+    if (!mounted || time == null) return;
 
     final dateTime = DateTime(
       date.year,
@@ -179,6 +180,6 @@ class _CreateEventFormState extends State<CreateEventForm> {
 
     controller.text =
         '${dateTime.year}-${dateTime.month.toString().padLeft(2, '0')}-${dateTime.day.toString().padLeft(2, '0')} '
-        '${time.format(context)}';
+        '${time.format(localContext)}';
   }
 }
