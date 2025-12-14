@@ -187,6 +187,9 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
         currentIndex: currentIndex,
         selectedItemColor: colorScheme.primary,
         unselectedItemColor: colorScheme.onSurface,
+        type: BottomNavigationBarType.fixed,
+        showUnselectedLabels: true,
+        showSelectedLabels: true,
         onTap: (index) {
           setState(() {
             currentIndex = index;
