@@ -20,7 +20,7 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: colorScheme.surface,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -38,10 +38,13 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
                     builder: (context) => const ViewEventBottomSheet(),
                   );
                 },
-                leading: Icon(Icons.visibility_outlined),
-                title: Text('View'),
+                leading: const Icon(Icons.visibility_outlined),
+                title: const Text('View'),
               ),
-              ListTile(leading: Icon(Icons.edit_outlined), title: Text('Edit')),
+              const ListTile(
+                leading: Icon(Icons.edit_outlined),
+                title: Text('Edit'),
+              ),
               ListTile(
                 leading: Icon(Icons.delete_outline, color: colorScheme.error),
                 title: Text(
@@ -93,7 +96,7 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  child: Text('Close'),
+                                  child: const Text('Close'),
                                 ),
                               ),
                               SizedBox(
@@ -108,7 +111,7 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
                                     ),
                                   ),
                                   onPressed: () {},
-                                  child: Text('Delete'),
+                                  child: const Text('Delete'),
                                 ),
                               ),
                             ],
