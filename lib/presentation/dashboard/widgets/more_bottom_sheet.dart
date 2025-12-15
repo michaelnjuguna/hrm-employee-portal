@@ -12,6 +12,7 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
   @override
   Widget build(BuildContext context) {
     final colorScheme = Theme.of(context).colorScheme;
+    final textTheme = Theme.of(context).textTheme;
     return BottomSheet(
       onClosing: () {},
       builder: (context) {
@@ -37,16 +38,86 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
                     builder: (context) => const ViewEventBottomSheet(),
                   );
                 },
-                leading: Icon(Icons.visibility),
+                leading: Icon(Icons.visibility_outlined),
                 title: Text('View'),
               ),
-              ListTile(leading: Icon(Icons.edit), title: Text('Edit')),
+              ListTile(leading: Icon(Icons.edit_outlined), title: Text('Edit')),
               ListTile(
-                leading: Icon(Icons.delete, color: colorScheme.error),
+                leading: Icon(Icons.delete_outline, color: colorScheme.error),
                 title: Text(
                   'Delete',
                   style: TextStyle(color: colorScheme.error),
                 ),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return AlertDialog(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                        title: Column(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.delete_rounded,
+                              color: colorScheme.error,
+                            ),
+                            Text(
+                              'Delete event',
+                              style: textTheme.titleMedium?.copyWith(
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                        content: Text(
+                          'Are you sure you would like to do this?',
+                          style: textTheme.bodyMedium,
+                        ),
+                        actions: [
+                          Column(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              SizedBox(
+                                width: double.infinity,
+
+                                child: TextButton(
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: Colors.grey[100],
+                                    foregroundColor: colorScheme.onSurface,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                  onPressed: () {
+                                    Navigator.of(context).pop();
+                                  },
+                                  child: Text('Close'),
+                                ),
+                              ),
+                              SizedBox(
+                                width: double.infinity,
+
+                                child: TextButton(
+                                  style: TextButton.styleFrom(
+                                    backgroundColor: colorScheme.error,
+                                    foregroundColor: colorScheme.onError,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(8),
+                                    ),
+                                  ),
+                                  onPressed: () {},
+                                  child: Text('Delete'),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
               ),
             ],
           ),

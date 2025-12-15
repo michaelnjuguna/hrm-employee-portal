@@ -141,7 +141,10 @@ class _CreateEventFormState extends State<CreateEventForm> {
                   width: double.infinity,
                   child: ElevatedButton(
                     onPressed: _submit,
-                    child: const Text('Create & create more'),
+                    child: Text(
+                      'Create & create more',
+                      style: TextStyle(color: colorScheme.onSurface),
+                    ),
                   ),
                 ),
               ],
