@@ -17,51 +17,51 @@ class _CreateEventState extends State<CreateEventWidget> {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-
-    return Padding(
-      padding: EdgeInsets.only(
-        top: 16,
-        left: 16,
-        right: 16,
-        bottom: MediaQuery.of(context).viewInsets.bottom + 16,
-      ),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: double.infinity,
-              alignment: Alignment.center,
-              decoration: const BoxDecoration(
-                border: Border(
-                  bottom: BorderSide(color: Colors.grey, width: 1),
-                ),
+    final colorScheme = Theme.of(context).colorScheme;
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            padding: EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 8),
+            // width: double.infinity,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: colorScheme.surfaceContainer,
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(8),
               ),
-              padding: const EdgeInsets.only(bottom: 16, top: 0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text('Create Event', style: textTheme.titleMedium),
-                  IconButton(
-                    iconSize: 25,
-                    padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    icon: Icon(Icons.close_rounded),
+            ),
+
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+              children: [
+                Text(
+                  'Create Event',
+                  style: textTheme.titleMedium?.copyWith(
+                    fontWeight: FontWeight.bold,
                   ),
-                ],
-              ),
+                ),
+                IconButton(
+                  iconSize: 25,
+                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  icon: Icon(Icons.close_rounded),
+                ),
+              ],
             ),
-            const SizedBox(height: 16),
+          ),
+          const SizedBox(height: 16),
 
-            CreateEventForm(
-              onSubmit: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        ),
+          CreateEventForm(
+            onSubmit: () {
+              Navigator.of(context).pop();
+            },
+          ),
+        ],
       ),
     );
   }

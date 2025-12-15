@@ -26,6 +26,7 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
             children: [
               ListTile(
                 onTap: () {
+                  Navigator.of(context).popUntil((route) => route.isFirst);
                   showModalBottomSheet(
                     context: context,
                     shape: const RoundedRectangleBorder(

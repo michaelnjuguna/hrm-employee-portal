@@ -43,108 +43,111 @@ class _CreateEventFormState extends State<CreateEventForm> {
 
     return Form(
       key: _formKey,
-      child: Column(
-        children: [
-          TextFormField(
-            controller: _titleController,
-            decoration: const InputDecoration(labelText: 'Title'),
-            validator: (value) => value == null || value.isEmpty
-                ? 'Please enter event title'
-                : null,
-          ),
-          const SizedBox(height: 16),
-          TextFormField(
-            controller: _descController,
-            minLines: 5,
-            maxLines: null,
-            decoration: const InputDecoration(labelText: 'Description'),
-          ),
-          const SizedBox(height: 16),
-          Row(
-            children: [
-              Expanded(
-                flex: 3,
-                child: DropdownButtonFormField<String>(
-                  initialValue: _selectedEventType,
-                  decoration: const InputDecoration(labelText: 'Type'),
-                  items: _eventTypes
-                      .map(
-                        (type) =>
-                            DropdownMenuItem(value: type, child: Text(type)),
-                      )
-                      .toList(),
-                  onChanged: (value) {
-                    setState(() {
-                      _selectedEventType = value;
-                    });
-                  },
-                ),
-              ),
-              Expanded(
-                flex: 2,
-                child: SwitchListTile(
-                  title: Text('All Day', style: textTheme.bodySmall),
-                  value: _allDay,
-                  onChanged: (value) {
-                    setState(() {
-                      _allDay = value;
-                    });
-                  },
-                  controlAffinity: ListTileControlAffinity.leading,
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16),
-          Row(
-            children: [
-              Expanded(
-                child: TextFormField(
-                  controller: _startTimeController,
-                  readOnly: true,
-                  decoration: const InputDecoration(
-                    labelText: 'Start date & time',
+      child: Padding(
+        padding: EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 8),
+        child: Column(
+          children: [
+            TextFormField(
+              controller: _titleController,
+              decoration: const InputDecoration(labelText: 'Title'),
+              validator: (value) => value == null || value.isEmpty
+                  ? 'Please enter event title'
+                  : null,
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              controller: _descController,
+              minLines: 5,
+              maxLines: null,
+              decoration: const InputDecoration(labelText: 'Description'),
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: DropdownButtonFormField<String>(
+                    initialValue: _selectedEventType,
+                    decoration: const InputDecoration(labelText: 'Type'),
+                    items: _eventTypes
+                        .map(
+                          (type) =>
+                              DropdownMenuItem(value: type, child: Text(type)),
+                        )
+                        .toList(),
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedEventType = value;
+                      });
+                    },
                   ),
-                  onTap: () => _pickDateTime(context, _startTimeController),
                 ),
-              ),
-              const SizedBox(width: 16),
-              Expanded(
-                child: TextFormField(
-                  controller: _endTimeController,
-                  readOnly: true,
-                  decoration: const InputDecoration(
-                    labelText: 'End date & time',
+                Expanded(
+                  flex: 2,
+                  child: SwitchListTile(
+                    title: Text('All Day', style: textTheme.bodySmall),
+                    value: _allDay,
+                    onChanged: (value) {
+                      setState(() {
+                        _allDay = value;
+                      });
+                    },
+                    controlAffinity: ListTileControlAffinity.leading,
                   ),
-                  onTap: () => _pickDateTime(context, _endTimeController),
                 ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 24),
-          Column(
-            children: [
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: colorScheme.primary,
-                    foregroundColor: colorScheme.onPrimary,
+              ],
+            ),
+            const SizedBox(height: 16),
+            Row(
+              children: [
+                Expanded(
+                  child: TextFormField(
+                    controller: _startTimeController,
+                    readOnly: true,
+                    decoration: const InputDecoration(
+                      labelText: 'Start date & time',
+                    ),
+                    onTap: () => _pickDateTime(context, _startTimeController),
                   ),
-                  onPressed: _submit,
-                  child: const Text('Create'),
                 ),
-              ),
-              SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: _submit,
-                  child: const Text('Create & create more'),
+                const SizedBox(width: 16),
+                Expanded(
+                  child: TextFormField(
+                    controller: _endTimeController,
+                    readOnly: true,
+                    decoration: const InputDecoration(
+                      labelText: 'End date & time',
+                    ),
+                    onTap: () => _pickDateTime(context, _endTimeController),
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+            const SizedBox(height: 24),
+            Column(
+              children: [
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: colorScheme.primary,
+                      foregroundColor: colorScheme.onPrimary,
+                    ),
+                    onPressed: _submit,
+                    child: const Text('Create'),
+                  ),
+                ),
+                SizedBox(
+                  width: double.infinity,
+                  child: ElevatedButton(
+                    onPressed: _submit,
+                    child: const Text('Create & create more'),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

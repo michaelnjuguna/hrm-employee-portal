@@ -8,14 +8,14 @@ class Calendar extends StatefulWidget {
   const Calendar({super.key});
 
   @override
-  _CalendarState createState() => _CalendarState();
+  State<Calendar> createState() => _CalendarState();
 }
 
 class _CalendarState extends State<Calendar> {
   DateTime _focusedDay = DateTime.now();
   DateTime? _selectedDay;
   final Map<DateTime, List<Event>> _events = {
-    DateTime.utc(2025, 12, 5): [
+    DateTime.utc(2025, 12, 16): [
       Event(
         title: 'Meeting',
         description:
@@ -29,7 +29,7 @@ class _CalendarState extends State<Calendar> {
       Event(title: 'Call', description: 'Lorem ipsum '),
       Event(title: 'Call', description: 'Lorem ipsum '),
     ],
-    DateTime.utc(2025, 12, 6): [Event(title: 'Deadline', description: 'data')],
+    DateTime.utc(2025, 12, 17): [Event(title: 'Deadline', description: 'data')],
   };
 
   List<Event> _getEventsForDay(DateTime day) {

@@ -24,7 +24,14 @@ class _DashboardScreenState extends State<DashboardScreen> {
             shape: const RoundedRectangleBorder(
               borderRadius: BorderRadius.vertical(top: Radius.circular(8)),
             ),
-            builder: (context) => const CreateEventWidget(),
+            builder: (context) {
+              return Padding(
+                padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom + 16,
+                ),
+                child: const CreateEventWidget(),
+              );
+            },
           );
         },
         shape: const CircleBorder(),
