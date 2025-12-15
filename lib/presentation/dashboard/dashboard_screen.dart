@@ -38,7 +38,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
         backgroundColor: colorScheme.primary,
         child: Icon(Icons.add, color: colorScheme.onPrimary),
       ),
-      child: Column(
+      child: const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [Calendar()],
       ),

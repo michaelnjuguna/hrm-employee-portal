@@ -16,20 +16,22 @@ class _CalendarState extends State<Calendar> {
   DateTime? _selectedDay;
   final Map<DateTime, List<Event>> _events = {
     DateTime.utc(2025, 12, 16): [
-      Event(
+      const Event(
         title: 'Meeting',
         description:
             'Lorem ipsum dolor sit amet consectetur adipiscing elit. Consectetur adipiscing elit quisque faucibus ex sapien vitae. Ex sapien vitae pellentesque sem placerat in id. Placerat in id cursus mi pretium tellus duis. Pretium tellus duis convallis tempus leo eu aenean.',
       ),
-      Event(title: 'Call', description: 'Lorem ipsum '),
-      Event(title: 'Call', description: 'Lorem ipsum '),
-      Event(title: 'Call', description: 'Lorem ipsum '),
-      Event(title: 'Call', description: 'Lorem ipsum '),
-      Event(title: 'Call', description: 'Lorem ipsum '),
-      Event(title: 'Call', description: 'Lorem ipsum '),
-      Event(title: 'Call', description: 'Lorem ipsum '),
+      const Event(title: 'Call', description: 'Lorem ipsum '),
+      const Event(title: 'Call', description: 'Lorem ipsum '),
+      const Event(title: 'Call', description: 'Lorem ipsum '),
+      const Event(title: 'Call', description: 'Lorem ipsum '),
+      const Event(title: 'Call', description: 'Lorem ipsum '),
+      const Event(title: 'Call', description: 'Lorem ipsum '),
+      const Event(title: 'Call', description: 'Lorem ipsum '),
     ],
-    DateTime.utc(2025, 12, 17): [Event(title: 'Deadline', description: 'data')],
+    DateTime.utc(2025, 12, 17): [
+      const Event(title: 'Deadline', description: 'data'),
+    ],
   };
 
   List<Event> _getEventsForDay(DateTime day) {
@@ -72,14 +74,14 @@ class _CalendarState extends State<Calendar> {
           startingDayOfWeek: StartingDayOfWeek.monday,
           headerStyle: HeaderStyle(
             titleCentered: true,
-            leftChevronMargin: EdgeInsets.symmetric(horizontal: 0),
-            leftChevronPadding: EdgeInsets.only(left: 0, right: 4),
-            rightChevronPadding: EdgeInsets.only(right: 0, left: 4),
+            leftChevronMargin: const EdgeInsets.symmetric(horizontal: 0),
+            leftChevronPadding: const EdgeInsets.only(left: 0, right: 4),
+            rightChevronPadding: const EdgeInsets.only(right: 0, left: 4),
             leftChevronIcon: Icon(
               Icons.keyboard_arrow_left,
               color: colorScheme.primary,
             ),
-            rightChevronMargin: EdgeInsets.symmetric(horizontal: 0),
+            rightChevronMargin: const EdgeInsets.symmetric(horizontal: 0),
             rightChevronIcon: Icon(
               Icons.keyboard_arrow_right,
               color: colorScheme.primary,
@@ -127,7 +129,7 @@ class _CalendarState extends State<Calendar> {
                         horizontal: 4,
                         vertical: 2,
                       ),
-                      minimumSize: Size(0, 30),
+                      minimumSize: const Size(0, 30),
                     ),
                     child: Text('Today', style: textScheme.labelSmall),
                   ),
@@ -162,7 +164,7 @@ class _CalendarState extends State<Calendar> {
         ),
 
         Padding(
-          padding: EdgeInsets.only(top: 16),
+          padding: const EdgeInsets.only(top: 16),
           child: Container(
             alignment: Alignment.centerLeft,
             child: Text(

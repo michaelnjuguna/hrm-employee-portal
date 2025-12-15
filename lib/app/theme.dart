@@ -10,7 +10,7 @@ class AppTheme {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
     ),
   );
-  static final _inputDecorationTheme = InputDecorationTheme(
+  static final _inputDecorationTheme = const InputDecorationTheme(
     // filled: false,
     // isDense: true,
     border: OutlineInputBorder(

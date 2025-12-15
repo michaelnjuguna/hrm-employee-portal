@@ -44,7 +44,7 @@ class _CreateEventFormState extends State<CreateEventForm> {
     return Form(
       key: _formKey,
       child: Padding(
-        padding: EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 8),
+        padding: const EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 8),
         child: Column(
           children: [
             TextFormField(

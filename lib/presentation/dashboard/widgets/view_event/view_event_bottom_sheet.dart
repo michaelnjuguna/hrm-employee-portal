@@ -1,3 +1,4 @@
+import 'package:employee_portal/app/constants.dart';
 import 'package:employee_portal/presentation/dashboard/widgets/view_event/event_detail_section.dart';
 import 'package:flutter/material.dart';
 
@@ -88,7 +89,7 @@ class _ViewEventBottomSheet extends State<ViewEventBottomSheet> {
                         vertical: 5,
                       ),
                       decoration: BoxDecoration(
-                        color: const Color(0xFF10b981),
+                        color: AppColors.appointment,
                         borderRadius: BorderRadius.circular(
                           30,
                         ), // Make the pill shape

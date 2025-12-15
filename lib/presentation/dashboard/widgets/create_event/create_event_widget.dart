@@ -23,7 +23,12 @@ class _CreateEventState extends State<CreateEventWidget> {
         mainAxisSize: MainAxisSize.min,
         children: [
           Container(
-            padding: EdgeInsets.only(top: 8, left: 16, right: 16, bottom: 8),
+            padding: const EdgeInsets.only(
+              top: 8,
+              left: 16,
+              right: 16,
+              bottom: 8,
+            ),
             // width: double.infinity,
             alignment: Alignment.center,
             decoration: BoxDecoration(
@@ -45,11 +50,14 @@ class _CreateEventState extends State<CreateEventWidget> {
                 ),
                 IconButton(
                   iconSize: 25,
-                  padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 0,
+                    vertical: 0,
+                  ),
                   onPressed: () {
                     Navigator.pop(context);
                   },
-                  icon: Icon(Icons.close_rounded),
+                  icon: const Icon(Icons.close_rounded),
                 ),
               ],
             ),
