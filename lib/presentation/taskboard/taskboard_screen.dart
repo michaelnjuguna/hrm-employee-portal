@@ -11,6 +11,9 @@ class TaskboardScreen extends StatefulWidget {
 class _TaskboardScreenState extends State<TaskboardScreen> {
   @override
   Widget build(BuildContext context) {
-    return MainLayout(appBarTitle: 'Task board', child: Text('Taskboard'));
+    return const MainLayout(
+      appBarTitle: 'Task board',
+      child: Text('Taskboard'),
+    );
   }
 }

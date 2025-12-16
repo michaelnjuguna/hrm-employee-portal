@@ -89,7 +89,7 @@ class _ViewEventBottomSheet extends State<ViewEventBottomSheet> {
                         vertical: 5,
                       ),
                       decoration: BoxDecoration(
-                        color: AppColors.appointment,
+                        color: EventColors.appointment,
                         borderRadius: BorderRadius.circular(
                           30,
                         ), // Make the pill shape
