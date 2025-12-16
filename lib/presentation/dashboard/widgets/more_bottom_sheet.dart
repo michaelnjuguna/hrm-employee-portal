@@ -1,3 +1,4 @@
+import 'package:employee_portal/presentation/dashboard/widgets/edit_event/edit_event_bottom_sheet.dart';
 import 'package:employee_portal/presentation/dashboard/widgets/view_event/view_event_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
@@ -41,9 +42,30 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
                 leading: const Icon(Icons.visibility_outlined),
                 title: const Text('View'),
               ),
-              const ListTile(
-                leading: Icon(Icons.edit_outlined),
-                title: Text('Edit'),
+              ListTile(
+                onTap: () {
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(8),
+                      ),
+                    ),
+                    builder: (context) {
+                      return Padding(
+                        padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).viewInsets.bottom + 16,
+                        ),
+
+                        child: const EditEventBottomSheet(),
+                      );
+                    },
+                  );
+                },
+                leading: const Icon(Icons.edit_outlined),
+                title: const Text('Edit'),
               ),
               ListTile(
                 leading: Icon(Icons.delete_outline, color: colorScheme.error),
