@@ -1,4 +1,5 @@
-import 'package:employee_portal/presentation/dashboard/widgets/view_event_bottom_sheet.dart';
+import 'package:employee_portal/presentation/dashboard/widgets/edit_event/edit_event_bottom_sheet.dart';
+import 'package:employee_portal/presentation/dashboard/widgets/view_event/view_event_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 class MoreBottomSheet extends StatefulWidget {
@@ -20,7 +21,7 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
           padding: const EdgeInsets.all(16),
           decoration: BoxDecoration(
             color: colorScheme.surface,
-            borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+            borderRadius: const BorderRadius.vertical(top: Radius.circular(16)),
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -38,10 +39,34 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
                     builder: (context) => const ViewEventBottomSheet(),
                   );
                 },
-                leading: Icon(Icons.visibility_outlined),
-                title: Text('View'),
+                leading: const Icon(Icons.visibility_outlined),
+                title: const Text('View'),
               ),
-              ListTile(leading: Icon(Icons.edit_outlined), title: Text('Edit')),
+              ListTile(
+                onTap: () {
+                  Navigator.of(context).popUntil((route) => route.isFirst);
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.vertical(
+                        top: Radius.circular(8),
+                      ),
+                    ),
+                    builder: (context) {
+                      return Padding(
+                        padding: EdgeInsets.only(
+                          bottom: MediaQuery.of(context).viewInsets.bottom + 16,
+                        ),
+
+                        child: const EditEventBottomSheet(),
+                      );
+                    },
+                  );
+                },
+                leading: const Icon(Icons.edit_outlined),
+                title: const Text('Edit'),
+              ),
               ListTile(
                 leading: Icon(Icons.delete_outline, color: colorScheme.error),
                 title: Text(
@@ -93,7 +118,7 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
                                   onPressed: () {
                                     Navigator.of(context).pop();
                                   },
-                                  child: Text('Close'),
+                                  child: const Text('Close'),
                                 ),
                               ),
                               SizedBox(
@@ -108,7 +133,7 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
                                     ),
                                   ),
                                   onPressed: () {},
-                                  child: Text('Delete'),
+                                  child: const Text('Delete'),
                                 ),
                               ),
                             ],

@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class CreateEventForm extends StatefulWidget {
-  const CreateEventForm({super.key, required this.onSubmit});
+class EditEventForm extends StatefulWidget {
+  const EditEventForm({super.key, required this.onSubmit});
 
   final VoidCallback onSubmit;
 
   @override
-  State<CreateEventForm> createState() => _CreateEventFormState();
+  State<EditEventForm> createState() => _EditEventFormState();
 }
 
-class _CreateEventFormState extends State<CreateEventForm> {
+class _EditEventFormState extends State<EditEventForm> {
   final _formKey = GlobalKey<FormState>();
   final _titleController = TextEditingController();
   final _descController = TextEditingController();
@@ -134,17 +134,7 @@ class _CreateEventFormState extends State<CreateEventForm> {
                       foregroundColor: colorScheme.onPrimary,
                     ),
                     onPressed: _submit,
-                    child: const Text('Create'),
-                  ),
-                ),
-                SizedBox(
-                  width: double.infinity,
-                  child: ElevatedButton(
-                    onPressed: _submit,
-                    child: Text(
-                      'Create & create more',
-                      style: TextStyle(color: colorScheme.onSurface),
-                    ),
+                    child: const Text('Save'),
                   ),
                 ),
               ],

@@ -1,3 +1,4 @@
+import 'package:employee_portal/app/constants.dart';
 import 'package:employee_portal/presentation/dashboard/widgets/more_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
@@ -33,10 +34,10 @@ class _EventCardState extends State<EventCard> {
               builder: (context, constraints) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: Colors.green,
+                    color: AppColors.appointment,
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  padding: EdgeInsets.symmetric(vertical: 6),
+                  padding: const EdgeInsets.symmetric(vertical: 6),
                   width: 4,
                   height: constraints.maxHeight * 0.6,
                 );
@@ -55,7 +56,7 @@ class _EventCardState extends State<EventCard> {
                   builder: (context) => const MoreBottomSheet(),
                 );
               },
-              icon: Icon(Icons.more_vert),
+              icon: const Icon(Icons.more_vert),
             ),
           ),
         );

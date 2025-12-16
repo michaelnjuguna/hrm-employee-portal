@@ -1,14 +1,14 @@
-import 'package:employee_portal/presentation/dashboard/widgets/create_event/create_event_form.dart';
+import 'package:employee_portal/presentation/dashboard/widgets/edit_event/edit_event_form.dart';
 import 'package:flutter/material.dart';
 
-class CreateEventWidget extends StatefulWidget {
-  const CreateEventWidget({super.key});
+class EditEventBottomSheet extends StatefulWidget {
+  const EditEventBottomSheet({super.key});
 
   @override
-  State<CreateEventWidget> createState() => _CreateEventState();
+  State<EditEventBottomSheet> createState() => _EditEventBottomSheetState();
 }
 
-class _CreateEventState extends State<CreateEventWidget> {
+class _EditEventBottomSheetState extends State<EditEventBottomSheet> {
   @override
   void dispose() {
     super.dispose();
@@ -43,7 +43,7 @@ class _CreateEventState extends State<CreateEventWidget> {
 
               children: [
                 Text(
-                  'Create Event',
+                  'Edit Event',
                   style: textTheme.titleMedium?.copyWith(
                     fontWeight: FontWeight.bold,
                   ),
@@ -64,7 +64,7 @@ class _CreateEventState extends State<CreateEventWidget> {
           ),
           const SizedBox(height: 16),
 
-          CreateEventForm(
+          EditEventForm(
             onSubmit: () {
               Navigator.of(context).pop();
             },

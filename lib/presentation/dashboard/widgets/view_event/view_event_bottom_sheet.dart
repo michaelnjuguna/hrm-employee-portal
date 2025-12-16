@@ -1,3 +1,5 @@
+import 'package:employee_portal/app/constants.dart';
+import 'package:employee_portal/presentation/dashboard/widgets/view_event/event_detail_section.dart';
 import 'package:flutter/material.dart';
 
 class ViewEventBottomSheet extends StatefulWidget {
@@ -20,13 +22,13 @@ class _ViewEventBottomSheet extends State<ViewEventBottomSheet> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Container(
-                padding: EdgeInsets.only(
+                padding: const EdgeInsets.only(
                   top: 0,
                   left: 16,
                   right: 16,
                   bottom: 8,
                 ),
-                margin: EdgeInsets.only(bottom: 8),
+                margin: const EdgeInsets.only(bottom: 8),
                 decoration: BoxDecoration(
                   color: colorScheme.surfaceContainer,
                   borderRadius: const BorderRadius.vertical(
@@ -45,25 +47,19 @@ class _ViewEventBottomSheet extends State<ViewEventBottomSheet> {
                     ),
                     IconButton(
                       iconSize: 25,
-                      padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 0,
+                        vertical: 0,
+                      ),
                       onPressed: () {
                         Navigator.pop(context);
                       },
-                      icon: Icon(Icons.close_rounded),
+                      icon: const Icon(Icons.close_rounded),
                     ),
                   ],
                 ),
               ),
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.only(
-                  top: 8,
-                  left: 16,
-                  right: 16,
-                  bottom: 8,
-                ),
-
-                margin: EdgeInsets.only(bottom: 8),
+              SheetSection(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -77,30 +73,23 @@ class _ViewEventBottomSheet extends State<ViewEventBottomSheet> {
                   ],
                 ),
               ),
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.only(
-                  top: 8,
-                  left: 16,
-                  right: 16,
-                  bottom: 8,
-                ),
-                margin: EdgeInsets.only(bottom: 8),
+
+              SheetSection(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
-                      margin: EdgeInsets.only(bottom: 8),
+                      margin: const EdgeInsets.only(bottom: 8),
                       child: Text('Type', style: textTheme.labelSmall),
                     ),
 
                     Container(
-                      padding: EdgeInsets.symmetric(
+                      padding: const EdgeInsets.symmetric(
                         horizontal: 10,
                         vertical: 5,
                       ),
                       decoration: BoxDecoration(
-                        color: Color(0xFF10b981), // Background color
+                        color: EventColors.appointment,
                         borderRadius: BorderRadius.circular(
                           30,
                         ), // Make the pill shape
@@ -110,15 +99,7 @@ class _ViewEventBottomSheet extends State<ViewEventBottomSheet> {
                   ],
                 ),
               ),
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.only(
-                  top: 8,
-                  left: 16,
-                  right: 16,
-                  bottom: 8,
-                ),
-                margin: EdgeInsets.only(bottom: 8),
+              SheetSection(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -132,15 +113,7 @@ class _ViewEventBottomSheet extends State<ViewEventBottomSheet> {
                   ],
                 ),
               ), // Description
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.only(
-                  top: 8,
-                  left: 16,
-                  right: 16,
-                  bottom: 8,
-                ),
-                margin: EdgeInsets.only(bottom: 8),
+              SheetSection(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -149,13 +122,16 @@ class _ViewEventBottomSheet extends State<ViewEventBottomSheet> {
                       children: [
                         Text('Start time', style: textTheme.labelSmall),
                         Container(
-                          margin: EdgeInsets.only(top: 8),
+                          margin: const EdgeInsets.only(top: 8),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Icon(Icons.calendar_month_outlined, size: 16),
+                              const Icon(
+                                Icons.calendar_month_outlined,
+                                size: 16,
+                              ),
                               Container(
-                                margin: EdgeInsets.only(left: 8),
+                                margin: const EdgeInsets.only(left: 8),
                                 child: Text(
                                   'Oct 23, 2025',
                                   style: textTheme.titleMedium?.copyWith(
@@ -167,14 +143,14 @@ class _ViewEventBottomSheet extends State<ViewEventBottomSheet> {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: 8),
+                          margin: const EdgeInsets.only(top: 8),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
 
                             children: [
-                              Icon(Icons.timer_outlined, size: 16),
+                              const Icon(Icons.timer_outlined, size: 16),
                               Container(
-                                margin: EdgeInsets.only(left: 8),
+                                margin: const EdgeInsets.only(left: 8),
                                 child: Text(
                                   '10:00 AM',
                                   style: textTheme.bodyMedium,
@@ -190,13 +166,16 @@ class _ViewEventBottomSheet extends State<ViewEventBottomSheet> {
                       children: [
                         Text('End time', style: textTheme.labelSmall),
                         Container(
-                          margin: EdgeInsets.only(top: 8),
+                          margin: const EdgeInsets.only(top: 8),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
                             children: [
-                              Icon(Icons.calendar_month_outlined, size: 16),
+                              const Icon(
+                                Icons.calendar_month_outlined,
+                                size: 16,
+                              ),
                               Container(
-                                margin: EdgeInsets.only(left: 8),
+                                margin: const EdgeInsets.only(left: 8),
                                 child: Text(
                                   'Oct 23, 2025',
                                   style: textTheme.titleMedium?.copyWith(
@@ -208,14 +187,14 @@ class _ViewEventBottomSheet extends State<ViewEventBottomSheet> {
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(top: 8),
+                          margin: const EdgeInsets.only(top: 8),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.start,
 
                             children: [
-                              Icon(Icons.timer_outlined, size: 16),
+                              const Icon(Icons.timer_outlined, size: 16),
                               Container(
-                                margin: EdgeInsets.only(left: 8),
+                                margin: const EdgeInsets.only(left: 8),
                                 child: Text(
                                   '11:00 AM',
                                   style: textTheme.bodyMedium,
