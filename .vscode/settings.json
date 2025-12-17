@@ -1,3 +1,4 @@
 {
-  "cSpell.words": ["allprojects", "Subproject", "Taskboard"]
+  "cSpell.words": ["allprojects", "Subproject", "Taskboard"],
+  "postman.settings.dotenv-detection-notification-visibility": false
 }

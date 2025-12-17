@@ -1,5 +1,5 @@
-import 'package:employee_portal/presentation/dashboard/widgets/edit_event/edit_event_bottom_sheet.dart';
-import 'package:employee_portal/presentation/dashboard/widgets/view_event/view_event_bottom_sheet.dart';
+import 'package:employee_portal/features/dashboard/widgets/edit_event/edit_event_bottom_sheet.dart';
+import 'package:employee_portal/features/dashboard/widgets/view_event/view_event_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 class MoreBottomSheet extends StatefulWidget {

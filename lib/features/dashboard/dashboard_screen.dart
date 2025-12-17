@@ -1,5 +1,5 @@
-import 'package:employee_portal/presentation/dashboard/widgets/calendar_widget.dart';
-import 'package:employee_portal/presentation/dashboard/widgets/create_event/create_event_widget.dart';
+import 'package:employee_portal/features/dashboard/widgets/calendar_widget.dart';
+import 'package:employee_portal/features/dashboard/widgets/create_event/create_event_widget.dart';
 import 'package:employee_portal/layouts/main_layout.dart';
 import 'package:flutter/material.dart';
 

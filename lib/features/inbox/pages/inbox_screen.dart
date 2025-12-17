@@ -11,6 +11,6 @@ class InboxScreen extends StatefulWidget {
 class _InboxScreenState extends State<InboxScreen> {
   @override
   Widget build(BuildContext context) {
-    return MainLayout(appBarTitle: 'Inbox', child: Text('Inbox'));
+    return const MainLayout(appBarTitle: 'Inbox', child: Text('Inbox'));
   }
 }

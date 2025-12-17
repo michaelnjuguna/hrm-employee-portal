@@ -1,10 +1,10 @@
-import 'package:employee_portal/presentation/account/profile_screen.dart';
-import 'package:employee_portal/presentation/inbox/inbox_screen.dart';
-import 'package:employee_portal/presentation/notifications/notifications_screen.dart';
-import 'package:employee_portal/presentation/splash_screen.dart';
-import 'package:employee_portal/presentation/taskboard/taskboard_screen.dart';
+import 'package:employee_portal/features/account/profile_screen.dart';
+import 'package:employee_portal/features/inbox/pages/inbox_screen.dart';
+import 'package:employee_portal/features/notifications/notifications_screen.dart';
+import 'package:employee_portal/features/splash_screen.dart';
+import 'package:employee_portal/features/taskboard/taskboard_screen.dart';
 import 'package:go_router/go_router.dart';
-import 'package:employee_portal/presentation/dashboard/dashboard_screen.dart';
+import 'package:employee_portal/features/dashboard/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {

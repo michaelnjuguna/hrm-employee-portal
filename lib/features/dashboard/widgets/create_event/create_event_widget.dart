@@ -1,4 +1,4 @@
-import 'package:employee_portal/presentation/dashboard/widgets/create_event/create_event_form.dart';
+import 'package:employee_portal/features/dashboard/widgets/create_event/create_event_form.dart';
 import 'package:flutter/material.dart';
 
 class CreateEventWidget extends StatefulWidget {

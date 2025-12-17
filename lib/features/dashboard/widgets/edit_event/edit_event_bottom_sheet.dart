@@ -1,4 +1,4 @@
-import 'package:employee_portal/presentation/dashboard/widgets/edit_event/edit_event_form.dart';
+import 'package:employee_portal/features/dashboard/widgets/edit_event/edit_event_form.dart';
 import 'package:flutter/material.dart';
 
 class EditEventBottomSheet extends StatefulWidget {
