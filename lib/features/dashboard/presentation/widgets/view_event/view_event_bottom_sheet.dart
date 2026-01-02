@@ -1,5 +1,5 @@
 import 'package:employee_portal/app/constants.dart';
-import 'package:employee_portal/presentation/dashboard/widgets/view_event/event_detail_section.dart';
+import 'package:employee_portal/features/dashboard/presentation/widgets/view_event/event_detail_section.dart';
 import 'package:flutter/material.dart';
 
 class ViewEventBottomSheet extends StatefulWidget {

@@ -1,4 +1,4 @@
-import 'package:employee_portal/layouts/main_layout.dart';
+import 'package:employee_portal/widgets/layouts/main_layout.dart';
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatefulWidget {
@@ -11,6 +11,6 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return MainLayout(appBarTitle: 'Profile', child: Text('Profile'));
+    return const MainLayout(appBarTitle: 'Profile', child: Text('Profile'));
   }
 }

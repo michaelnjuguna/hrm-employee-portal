@@ -1,5 +1,5 @@
-import 'package:employee_portal/presentation/dashboard/widgets/edit_event/edit_event_bottom_sheet.dart';
-import 'package:employee_portal/presentation/dashboard/widgets/view_event/view_event_bottom_sheet.dart';
+import 'package:employee_portal/features/dashboard/presentation/widgets/edit_event/edit_event_bottom_sheet.dart';
+import 'package:employee_portal/features/dashboard/presentation/widgets/view_event/view_event_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
 class MoreBottomSheet extends StatefulWidget {
@@ -109,7 +109,7 @@ class _MoreBottomSheetState extends State<MoreBottomSheet> {
 
                                 child: TextButton(
                                   style: TextButton.styleFrom(
-                                    backgroundColor: Colors.grey[100],
+                                    backgroundColor: colorScheme.surface,
                                     foregroundColor: colorScheme.onSurface,
                                     shape: RoundedRectangleBorder(
                                       borderRadius: BorderRadius.circular(8),

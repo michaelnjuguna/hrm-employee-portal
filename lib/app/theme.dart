@@ -24,7 +24,7 @@ class AppTheme {
       seedColor: lightSeedColor,
       brightness: Brightness.light,
     ),
-    textTheme: GoogleFonts.openSansTextTheme(),
+    textTheme: GoogleFonts.robotoFlexTextTheme(),
     elevatedButtonTheme: _elevatedButtonTheme,
     inputDecorationTheme: _inputDecorationTheme,
   );
@@ -35,7 +35,7 @@ class AppTheme {
       seedColor: darkSeedColor,
       brightness: Brightness.dark,
     ),
-    textTheme: GoogleFonts.openSansTextTheme(ThemeData.dark().textTheme),
+    textTheme: GoogleFonts.robotoFlexTextTheme(ThemeData.dark().textTheme),
     elevatedButtonTheme: _elevatedButtonTheme,
     inputDecorationTheme: _inputDecorationTheme,
   );

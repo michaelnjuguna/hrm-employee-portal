@@ -1,8 +1,8 @@
 import 'package:employee_portal/app/constants.dart';
-import 'package:employee_portal/presentation/dashboard/widgets/more_bottom_sheet.dart';
+import 'package:employee_portal/features/dashboard/presentation/widgets/more_bottom_sheet.dart';
 import 'package:flutter/material.dart';
 
-import 'package:employee_portal/presentation/dashboard/models/event.dart';
+import 'package:employee_portal/features/dashboard/models/event.dart';
 
 class EventCard extends StatefulWidget {
   final List<Event> events;
@@ -34,7 +34,7 @@ class _EventCardState extends State<EventCard> {
               builder: (context, constraints) {
                 return Container(
                   decoration: BoxDecoration(
-                    color: AppColors.appointment,
+                    color: EventColors.appointment,
                     borderRadius: BorderRadius.circular(12),
                   ),
                   padding: const EdgeInsets.symmetric(vertical: 6),

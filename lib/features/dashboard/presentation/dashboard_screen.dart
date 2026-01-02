@@ -1,6 +1,6 @@
-import 'package:employee_portal/presentation/dashboard/widgets/calendar_widget.dart';
-import 'package:employee_portal/presentation/dashboard/widgets/create_event/create_event_widget.dart';
-import 'package:employee_portal/layouts/main_layout.dart';
+import 'package:employee_portal/features/dashboard/presentation/widgets/calendar_widget.dart';
+import 'package:employee_portal/features/dashboard/presentation/widgets/create_event/create_event_widget.dart';
+import 'package:employee_portal/widgets/layouts/main_layout.dart';
 import 'package:flutter/material.dart';
 
 class DashboardScreen extends StatefulWidget {

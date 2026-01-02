@@ -1,4 +1,4 @@
-import 'package:employee_portal/layouts/main_layout.dart';
+import 'package:employee_portal/widgets/layouts/main_layout.dart';
 import 'package:flutter/material.dart';
 
 class InboxScreen extends StatefulWidget {
@@ -11,6 +11,6 @@ class InboxScreen extends StatefulWidget {
 class _InboxScreenState extends State<InboxScreen> {
   @override
   Widget build(BuildContext context) {
-    return MainLayout(appBarTitle: 'Inbox', child: Text('Inbox'));
+    return const MainLayout(appBarTitle: 'Inbox', child: Text('Inbox'));
   }
 }
