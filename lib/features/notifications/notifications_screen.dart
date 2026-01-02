@@ -1,4 +1,4 @@
-import 'package:employee_portal/layouts/main_layout.dart';
+import 'package:employee_portal/widgets/layouts/main_layout.dart';
 import 'package:flutter/material.dart';
 
 class NotificationsScreen extends StatefulWidget {
@@ -11,7 +11,7 @@ class NotificationsScreen extends StatefulWidget {
 class _NotificationsScreenState extends State<NotificationsScreen> {
   @override
   Widget build(BuildContext context) {
-    return MainLayout(
+    return const MainLayout(
       appBarTitle: 'Notifications',
       child: Text('Notifications'),
     );

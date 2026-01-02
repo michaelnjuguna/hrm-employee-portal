@@ -4,7 +4,7 @@ import 'package:employee_portal/features/notifications/notifications_screen.dart
 import 'package:employee_portal/features/splash_screen.dart';
 import 'package:employee_portal/features/taskboard/taskboard_screen.dart';
 import 'package:go_router/go_router.dart';
-import 'package:employee_portal/features/dashboard/dashboard_screen.dart';
+import 'package:employee_portal/features/dashboard/presentation/dashboard_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRouter {

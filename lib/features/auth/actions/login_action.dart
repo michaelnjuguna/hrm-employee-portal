@@ -2,8 +2,8 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 
-class AuthLogin {
-  const AuthLogin();
+class LoginAction {
+  const LoginAction();
 
   /// Makes the login API call
   Future<Map<String, dynamic>> call(Map<String, dynamic> loginData) async {
@@ -61,4 +61,4 @@ class AuthLogin {
 }
 
 /// Export a singleton instance to avoid creating new objects everywhere
-const authLogin = AuthLogin();
+const loginAction = LoginAction();

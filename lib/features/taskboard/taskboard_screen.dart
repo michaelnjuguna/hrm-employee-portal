@@ -1,4 +1,4 @@
-import 'package:employee_portal/layouts/main_layout.dart';
+import 'package:employee_portal/widgets/layouts/main_layout.dart';
 import 'package:flutter/material.dart';
 
 class TaskboardScreen extends StatefulWidget {

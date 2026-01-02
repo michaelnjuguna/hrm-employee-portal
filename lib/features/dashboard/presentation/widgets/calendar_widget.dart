@@ -1,4 +1,4 @@
-import 'package:employee_portal/features/dashboard/widgets/event_card.dart';
+import 'package:employee_portal/features/dashboard/presentation/widgets/event_card.dart';
 import 'package:flutter/material.dart';
 import 'package:jiffy/jiffy.dart';
 import 'package:table_calendar/table_calendar.dart';
