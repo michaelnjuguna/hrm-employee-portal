@@ -9,7 +9,7 @@ mixin ValidationMixin {
   }
 
   bool isValidPhone(String phone) {
-    final phoneRegex = RegExp(r'^\');
+    final phoneRegex = RegExp(r'^(?:\+254|0)?7\d{8}$');
     return phoneRegex.hasMatch(phone);
   }
 }
