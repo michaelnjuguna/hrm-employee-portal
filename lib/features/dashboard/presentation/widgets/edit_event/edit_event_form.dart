@@ -149,22 +149,22 @@ class _EditEventFormState extends State<EditEventForm> {
     BuildContext context,
     TextEditingController controller,
   ) async {
-    final localContext = context;
     final date = await showDatePicker(
-      context: localContext,
+      context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(2000),
       lastDate: DateTime(2100),
     );
 
-    if (date == null || !mounted) return;
+    if (date == null || !context.mounted) return;
 
     final time = await showTimePicker(
-      context: localContext,
+      context: context,
       initialTime: TimeOfDay.now(),
+      initialEntryMode: TimePickerEntryMode.input,
     );
 
-    if (!mounted || time == null) return;
+    if (!context.mounted || time == null) return;
 
     final dateTime = DateTime(
       date.year,
@@ -176,6 +176,6 @@ class _EditEventFormState extends State<EditEventForm> {
 
     controller.text =
         '${dateTime.year}-${dateTime.month.toString().padLeft(2, '0')}-${dateTime.day.toString().padLeft(2, '0')} '
-        '${time.format(localContext)}';
+        '${time.format(context)}';
   }
 }
