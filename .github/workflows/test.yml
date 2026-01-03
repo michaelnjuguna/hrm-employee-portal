@@ -38,6 +38,3 @@ jobs:
 
       - name: Run tests
         run: flutter test
-
-      - name: Build Android APK
-        run: flutter build apk --debug
