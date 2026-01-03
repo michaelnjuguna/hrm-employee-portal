@@ -160,6 +160,7 @@ class _CreateEventFormState extends State<CreateEventForm> {
     TextEditingController controller,
   ) async {
     final localContext = context;
+
     final date = await showDatePicker(
       context: localContext,
       initialDate: DateTime.now(),

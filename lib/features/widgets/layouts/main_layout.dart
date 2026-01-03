@@ -65,7 +65,7 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
         iconTheme: IconThemeData(color: colorScheme.onSurface),
         actions: [
           IconButton(
-            icon: Icon(Icons.notifications_outlined),
+            icon: const Icon(Icons.notifications_outlined),
 
             onPressed: () {},
 
@@ -116,7 +116,7 @@ class _MainLayoutState extends ConsumerState<MainLayout> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.account_circle),
+              leading: const Icon(Icons.account_circle),
               title: Text('Profile', style: textScheme.bodyLarge),
               onTap: () {},
             ),
